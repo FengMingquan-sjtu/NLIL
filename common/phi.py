@@ -25,6 +25,7 @@ class Succ(Phi):
 
     def forward(self, noarg_input, arg_input=None):
         # right shift by 1
+        # at the 3rd dimension, index=0 is repalced by zero matrix, and index=i is replaced by index=i-1.
         arg_input = torch.cat([torch.zeros(arg_input.size(0),
                                            arg_input.size(1), 1).to(cmd_args.device), arg_input], dim=-1)[:, :, :-1]
         return arg_input
@@ -53,7 +54,8 @@ class TabularPhi(Phi):
 
     def forward(self, noarg_input, arg_input=None):
         """
-
+        :::num_const denotes number of constants, num_arg denotes number of args
+        noarg_input 
         :param noarg_input:
             (b, num_const, 1) if unp, otherwise (num_const, num_const)
         :param arg_input:
