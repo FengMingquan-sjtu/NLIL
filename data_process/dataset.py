@@ -379,8 +379,9 @@ def preprocess_withDomain(pred_path, fact_path_ls, ent_path_ls=None):
                     unp_set.add(pred_name)
                 else:
                     bip_set.add(pred_name)
-
+        #print(unp_set,bip_set,flush=True)
         if keep_empty:
+            #print("keep_empty")
             pn_ls = list(pred_register.pred_dict.keys())
             unp_ls = [pn for pn in pn_ls if pred_register.is_unp(pn)]
             bip_ls = [pn for pn in pn_ls if not pred_register.is_unp(pn)]
@@ -414,8 +415,8 @@ def preprocess_withDomain(pred_path, fact_path_ls, ent_path_ls=None):
                 pred2domain_dict[pn].append(d)
 
     else:
-        raise ValueError
-
+        raise ValueError(fact_path_ls[0])
+        
     return pred2domain_dict
 
 

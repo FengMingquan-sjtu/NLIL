@@ -79,6 +79,9 @@ def prep_dataset():
     elif 'evensucc' in cmd_args.data_root:
         tqdm.write('running even-odd..')
         tgt_pred_ls = ['even']
+    elif 'oag' in cmd_args.data_root:
+        tqdm.write('running oag..')
+        tgt_pred_ls = ['PP_cite','AP_write_first','AP_write_last','AP_write_other']
 
     else:
         raise ValueError
